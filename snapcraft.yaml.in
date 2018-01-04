@@ -16,7 +16,7 @@ parts:
         plugin: make
         make-parameters: ["-Csrc",
             "PLATFORM=linux64", "PLATFORM_BIN=amd64",
-            "PLATFORM_BUILD=_BUILD_", "PLATFORM_BRANCH=\"_BRANCH_\"", "PLATFORM_REVISON=\"_REVISION_\"",
+            "PLATFORM_BUILD=_BUILD_", "PLATFORM_BRANCH=_BRANCH_", "PLATFORM_REVISION=_REVISION_",
             "install-client"]
         artifacts: ["bin/amd64/redeclipse_linux", "config", "data", "doc", "sql"]
         build-packages:
