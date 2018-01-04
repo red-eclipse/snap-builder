@@ -1,20 +1,23 @@
 name: redeclipse
-version: stable
+version: _BRANCH_
 summary: Red Eclipse, a fast-paced arena shooter with agile gameplay.
 description: |
     Red Eclipse is a fun-filled new take on the first person arena shooter,
     built as a total conversion of Cube Engine 2, which lends itself toward
     a balanced gameplay, with a general theme of agility in a variety of
     environments.
-grade: devel
+grade: _GRADE_
 confinement: strict
 
 parts:
     redeclipse:
         source: https://github.com/red-eclipse/base.git
-        source-branch: stable
+        source-branch: _BRANCH_
         plugin: make
-        make-parameters: ["-Csrc", "install-client"]
+        make-parameters: ["-Csrc",
+            "PLATFORM=linux64", "PLATFORM_BIN=amd64",
+            "PLATFORM_BUILD=_BUILD_", "PLATFORM_BRANCH=\"_BRANCH_\"", "PLATFORM_REVISON=\"_REVISION_\"",
+            "install-client"]
         artifacts: ["bin/amd64/redeclipse_linux", "config", "data", "doc", "sql"]
         build-packages:
             - build-essential
@@ -26,7 +29,6 @@ parts:
         install: |
             echo 'cd "$SNAP" || echo "could not cd to snap mountpoint"; bin/amd64/redeclipse_linux "$@"' > "$SNAPCRAFT_PART_INSTALL/bin/redeclipse.sh"
             chmod a+x "$SNAPCRAFT_PART_INSTALL/bin/redeclipse.sh"
-
 
 apps:
     redeclipse:
