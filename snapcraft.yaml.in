@@ -11,7 +11,7 @@ confinement: strict
 
 parts:
     redeclipse:
-        source: https://github.com/red-eclipse/base.git
+        source: https://github.com/redeclipse/base.git
         source-branch: _BRANCH_
         plugin: make
         make-parameters: ["-Csrc",
